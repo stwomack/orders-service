@@ -23,7 +23,7 @@ public class OrdersServiceApplication {
 		Order order = generateRandomOrder();
 		System.out.println(order.toString());
 		RestTemplate restTemplate = new RestTemplate();
-//		restTemplate.postForObject("http://shippping-service", order, String.class);
+		restTemplate.postForObject("http://shippping-service", order, String.class);
 	}
 
 	public static Order generateRandomOrder() {
