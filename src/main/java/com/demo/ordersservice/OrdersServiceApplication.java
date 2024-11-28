@@ -28,7 +28,7 @@ public class OrdersServiceApplication {
 		RestTemplate restTemplate = new RestTemplate();
         LOG.info("Created new order: {}", order.toString());
 		String response = restTemplate.postForObject("http://shipping-service/shipping", order, String.class);
-        LOG.info("Response{}", response);
+        LOG.info("Response {}", response);
 	}
 
 	public static Order generateRandomOrder() {
