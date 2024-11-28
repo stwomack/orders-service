@@ -1,5 +1,7 @@
 package com.demo.ordersservice;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -12,6 +14,7 @@ import java.util.Random;
 @EnableScheduling
 
 public class OrdersServiceApplication {
+	private final Logger LOG = LoggerFactory.getLogger(OrdersServiceApplication.class);
 
 	public static void main(String[] args) {
 		SpringApplication.run(OrdersServiceApplication.class, args);
@@ -23,6 +26,7 @@ public class OrdersServiceApplication {
 		Order order = generateRandomOrder();
 		System.out.println(order.toString());
 		RestTemplate restTemplate = new RestTemplate();
+		LOG.info("Created new order: " + order.toString());
 		restTemplate.postForObject("http://shippping-service", order, String.class);
 	}
 
