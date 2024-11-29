@@ -23,23 +23,23 @@ public class OrdersServiceApplication {
 	@Scheduled(fixedRate
 			= 20000)
 	public void generateOrder() {
-		Order order = generateRandomOrder();
-		System.out.println(order.toString());
+		CustomOrder customOrder = generateRandomOrder();
+		System.out.println(customOrder.toString());
 		RestTemplate restTemplate = new RestTemplate();
-        LOG.info("Created new order: {}", order.toString());
-		String response = restTemplate.postForObject("http://shipping-service/shipping", order, String.class);
+        LOG.info("Created new order: {}", customOrder.toString());
+		String response = restTemplate.postForObject("http://shipping-service/shipping", customOrder, String.class);
         LOG.info("Response {}", response);
 	}
 
-	public static Order generateRandomOrder() {
+	public static CustomOrder generateRandomOrder() {
 		Random random = new Random();
 
-		Order order = new Order();
-		order.setId(random.nextLong(10000));
-		order.setCustomerName("Customer " + random.nextInt(1000));
-		order.setItemName("Item: " + random.nextInt(1000));
-		order.setQuantity(+ random.nextInt(20));
+		CustomOrder customOrder = new CustomOrder();
+		customOrder.setId(random.nextLong(10000));
+		customOrder.setCustomerName("Customer " + random.nextInt(1000));
+		customOrder.setItemName("Item: " + random.nextInt(1000));
+		customOrder.setQuantity(+ random.nextInt(20));
 
-		return order;
+		return customOrder;
 	}
 }

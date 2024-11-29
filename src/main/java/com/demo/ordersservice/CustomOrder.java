@@ -1,6 +1,6 @@
 package com.demo.ordersservice;
 
-public class Order {
+public class CustomOrder {
     Long id;
 
     @Override
