@@ -27,7 +27,13 @@ public class OrdersServiceApplication {
 		System.out.println(customOrder.toString());
 		RestTemplate restTemplate = new RestTemplate();
         LOG.info("Created new order: {}", customOrder.toString());
-		String response = restTemplate.postForObject("http://shipping-service/shipping", customOrder, String.class);
+		String response = "No Response";
+		try {
+			response = restTemplate.postForObject("http://shipping-service/shipping", customOrder, String.class);
+		} catch (Exception e) {
+			LOG.error("Ooops, service probably down: {}", e.getMessage());
+		}
+
         LOG.info("Response {}", response);
 	}
 

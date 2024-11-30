@@ -4,8 +4,8 @@ public class CustomOrder {
 
     @Override
     public String toString() {
-        return "Order{" +
-                ", customerName='" + customerName + '\'' +
+        return "CustomOrder{" +
+                "customerName='" + customerName + '\'' +
                 ", itemName='" + itemName + '\'' +
                 ", quantity=" + quantity +
                 '}';
