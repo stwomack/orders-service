@@ -35,7 +35,6 @@ public class OrdersServiceApplication {
 		Random random = new Random();
 
 		CustomOrder customOrder = new CustomOrder();
-		customOrder.setId(random.nextLong(10000));
 		customOrder.setCustomerName("Customer " + random.nextInt(1000));
 		customOrder.setItemName("Item: " + random.nextInt(1000));
 		customOrder.setQuantity(+ random.nextInt(20));
