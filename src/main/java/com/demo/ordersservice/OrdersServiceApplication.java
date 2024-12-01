@@ -21,7 +21,7 @@ public class OrdersServiceApplication {
 	}
 
 	@Scheduled(fixedRate
-			= 20000)
+			= 5000)
 	public void generateOrder() {
 		CustomOrder customOrder = generateRandomOrder();
 		System.out.println(customOrder.toString());
