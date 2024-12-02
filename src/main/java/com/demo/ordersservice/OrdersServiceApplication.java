@@ -39,7 +39,7 @@ public class OrdersServiceApplication {
 			LOG.info("Span: {}", span.toString());
 			response = restTemplate.postForObject("http://shipping-service/shipping", customOrder, String.class);
 		} catch (Exception e) {
-			LOG.error("Ooops, service probably down: {}", e.getMessage());
+			LOG.error("Ooops, shipping service probably down: {}", e.getMessage());
 		} finally {
 			span.end();
 		}
