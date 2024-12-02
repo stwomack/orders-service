@@ -33,7 +33,7 @@ public class OrdersServiceApplication {
 		RestTemplate restTemplate = new RestTemplate();
         LOG.info("Created new order: {}", customOrder.toString());
 		String response = "No Response";
-		Span span = tracer.spanBuilder().start();
+		Span span = tracer.spanBuilder().name("orders-service").start();
 		try {
 			span.start();
 			LOG.info("Span: {}", span.toString());
