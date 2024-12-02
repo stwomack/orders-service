@@ -37,6 +37,7 @@ public class OrdersServiceApplication {
 		try {
 			span.start();
 			LOG.info("Span: {}", span.toString());
+			//Getting to be dumb
 			response = restTemplate.postForObject("http://shipping-service/shipping", customOrder, String.class);
 		} catch (Exception e) {
 			LOG.error("Ooops, shipping service probably down: {}", e.getMessage());
