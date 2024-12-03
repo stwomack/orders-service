@@ -33,9 +33,8 @@ public class OrdersServiceApplication {
 		RestTemplate restTemplate = new RestTemplate();
         LOG.info("Created new order: {}", customOrder.toString());
 		String response = "No Response";
-		Span span = tracer.spanBuilder().name("orders-service").remoteIpAndPort("http://grafana-k8s-monitoring-alloy.default.svc.cluster.local", 4318).start();
 		try {
-			span.start();
+			Span span = tracer.spanBuilder().name("orders-service").remoteIpAndPort("http://grafana-k8s-monitoring-alloy.default.svc.cluster.local", 4318).start();
 			LOG.info("Span: {}", span.toString());
 			response = restTemplate.postForObject("http://shipping-service/shipping", customOrder, String.class);
 		} catch (Exception e) {
