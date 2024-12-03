@@ -1,7 +1,7 @@
 apiVersion: kpack.io/v1alpha2
 kind: Image
 metadata:
-  name: orders-service-image
+  name: orders-service-image-tmp
   namespace: default
 spec:
   tag: stwomack/orders-service
