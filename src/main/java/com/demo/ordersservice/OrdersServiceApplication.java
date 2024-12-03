@@ -33,14 +33,14 @@ public class OrdersServiceApplication {
 		RestTemplate restTemplate = new RestTemplate();
         LOG.info("Created new order: {}", customOrder.toString());
 		String response = "No Response";
+		Span spanBulder = tracer.spanBuilder().name("orders-service").remoteIpAndPort("http://grafana-k8s-monitoring-alloy.default.svc.cluster.local", 4318).start();
 		try {
-			Span span = tracer.spanBuilder().name("orders-service").remoteIpAndPort("http://grafana-k8s-monitoring-alloy.default.svc.cluster.local", 4318).start();
-			LOG.info("Span: {}", span.toString());
+			LOG.info("Span: {}", spanBulder.toString());
 			response = restTemplate.postForObject("http://shipping-service/shipping", customOrder, String.class);
 		} catch (Exception e) {
 			LOG.error("Ooops, shipping service probably down: {}", e.getMessage());
 		} finally {
-			span.end();
+			spanBulder.end();
 		}
 
         LOG.info("Response {}", response);
