@@ -31,8 +31,6 @@ public class OrdersServiceApplication {
         CustomOrder customOrder = generateRandomOrder();
         LOG.info(customOrder.toString());
         LOG.info("Created new order: {}", customOrder.toString());
-        LOG.error("USER:" + System.getProperty("DB_USER"));
-        LOG.error("PASSWORD:" + System.getProperty("DB_PASSWORD"));
         String response = "No Response";
         try {
             orderRepository.save(customOrder);
