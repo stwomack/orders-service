@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: orders-service
 spec:
-  replicas: 10
+  replicas: 5
   selector:
     matchLabels:
       app: orders-service
@@ -17,6 +17,6 @@ spec:
           image: stwomack/orders-service:latest
           ports:
             - containerPort: 8080
-          env:
-            - name: OTEL_EXPORTER_OTLP_ENDPOINT
-              value: "http://grafana-k8s-monitoring-alloy.default.svc.cluster.local:4318"
+          envFrom:
+            - secretRef:
+                name: db-secret

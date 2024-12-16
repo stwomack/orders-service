@@ -1,15 +1,15 @@
 apiVersion: kpack.io/v1alpha2
 kind: Image
 metadata:
-  name: orders-service-image-s
+  name: orders-service-image
   namespace: default
 spec:
   tag: stwomack/orders-service
-  serviceAccountName: tutorial-service-account
+  serviceAccountName: wiz-service-account
   builder:
-    name: my-builder
+    name: main-builder
     kind: Builder
   source:
     git:
       url: https://github.com/stwomack/orders-service
-      revision: master
+      revision: wiz
