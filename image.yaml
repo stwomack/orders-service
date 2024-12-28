@@ -5,11 +5,11 @@ metadata:
   namespace: default
 spec:
   tag: stwomack/orders-service
-  serviceAccountName: wiz-service-account
+  serviceAccountName: main-builder-service-account
   builder:
     name: main-builder
     kind: Builder
   source:
     git:
       url: https://github.com/stwomack/orders-service
-      revision: wiz
+      revision: main
