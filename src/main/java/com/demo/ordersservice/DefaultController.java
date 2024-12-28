@@ -8,6 +8,6 @@ public class DefaultController {
 
     @GetMapping("/")
     public String hello() {
-        return "Hello, Wiz!";
+        return "This app is generating orders and storing them in MongoDB";
     }
 }
